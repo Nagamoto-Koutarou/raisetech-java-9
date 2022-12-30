@@ -1,10 +1,10 @@
 package com.rasetech.java9.entity;
 
-public class NameEntity {
+public class Name {
     private int id;
     private String name;
 
-    public NameEntity(int id, String name) {
+    public Name(int id, String name) {
         this.id = id;
         this.name = name;
     }

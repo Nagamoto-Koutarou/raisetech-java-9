@@ -1,6 +1,6 @@
 package com.rasetech.java9.controller;
 
-import com.rasetech.java9.entity.NameEntity;
+import com.rasetech.java9.entity.Name;
 
 public class NameResponse {
 
@@ -12,7 +12,7 @@ public class NameResponse {
         this.name  = name;
     }
 
-    public NameResponse(NameEntity name) {
+    public NameResponse(Name name) {
         this.id = name.getId();
         this.name = name.getName();
     }
