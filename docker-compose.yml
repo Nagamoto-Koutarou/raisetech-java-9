@@ -8,7 +8,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: "${TAG_MYSQL_ROOT_PASSWORD}"
-      MYSQL_DATABASE: name_db
+      MYSQL_DATABASE: coffee_list
       MYSQL_USER: user
       MYSQL_PASSWORD: "${TAG_MYSQL_PASSWORD}"
     volumes:

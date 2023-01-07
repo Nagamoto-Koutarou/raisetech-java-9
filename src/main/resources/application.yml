@@ -1,7 +1,7 @@
 #データソース
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3307/name_db
+    url: jdbc:mysql://localhost:3307/coffee_list
     username: root
     password: ${password:password}
     driver-class-name: com.mysql.cj.jdbc.Driver
