@@ -10,12 +10,12 @@
     bitterTaste int,
     sweetTaste int,
     rich int,
-    100gPrice decimal(7, 2),
-    200gPrice decimal(7, 2),
+    priceOf100g decimal(7, 2),
+    priceOf200g decimal(7, 2),
     PRIMARY KEY (id)
   );
 
- INSERT INTO coffees (productName, countryOfOrigin, degreeOfRoasting, aroma, acidity, bitterTaste, sweetTaste, rich, 100gPrice, 200gPrice) VALUES
+ INSERT INTO coffees (productName, countryOfOrigin, degreeOfRoasting, aroma, acidity, bitterTaste, sweetTaste, rich, priceOf100g, priceOf200g) VALUES
  ("ブルーマウンテン", "ジャマイカ", "浅煎り", 3, 2, 1, 2, 3, 2850, 5650),
  ("ハワイ　エクストラファンシー", "アメリカ", "やや浅煎り", 2, 1, 2, 2, 3, 1700, 3350),
  ("モカ　マタリ", "イエメン", "やや浅煎り", 3, 1, 1, 2, 3, 950, 1850),

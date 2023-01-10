@@ -1,14 +1,14 @@
 package com.rasetech.java9.mapper;
 
-import com.rasetech.java9.entity.Name;
+import com.rasetech.java9.entity.Coffee;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 import java.util.Optional;
 
 @Mapper
-public interface NameMapper {
-    List<Name> findAll();
+public interface CoffeeMapper {
+    List<Coffee> findAll();
 
-    Optional<Name> findById(int id);
+    Optional<Coffee> findById(int id);
 }

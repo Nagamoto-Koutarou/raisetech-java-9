@@ -1,0 +1,11 @@
+package com.rasetech.java9.service;
+
+import com.rasetech.java9.entity.Coffee;
+
+import java.util.List;
+
+public interface CoffeeService {
+    List<Coffee> findAll();
+
+    Coffee findById(int id);
+}
