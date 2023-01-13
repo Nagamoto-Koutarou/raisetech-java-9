@@ -6,17 +6,17 @@ import lombok.Getter;
 @Getter
 public class CoffeeResponse {
 
-    private int id;
-    private String productName;
-    private String countryOfOrigin;
-    private  String degreeOfRoasting;
-    private int aroma;
-    private int acidity;
-    private int bitterTaste;
-    private int sweetTaste;
-    private int rich;
-    private int priceOf100g;
-    private int priceOf200g;
+    private final int id;
+    private final String productName;
+    private final String countryOfOrigin;
+    private final String degreeOfRoasting;
+    private final int aroma;
+    private final int acidity;
+    private final int bitterTaste;
+    private final int sweetTaste;
+    private final int rich;
+    private final int priceOf100g;
+    private final int priceOf200g;
 
     public CoffeeResponse(Coffee coffee) {
         this.id = coffee.getId();

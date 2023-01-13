@@ -1,6 +1,7 @@
 package com.rasetech.java9.service;
 
 import com.rasetech.java9.entity.Coffee;
+import com.rasetech.java9.form.CoffeeForm;
 import com.rasetech.java9.mapper.CoffeeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,5 +24,10 @@ public class CoffeeServiceImpl implements CoffeeService {
     public Coffee findById(int id) {
         Optional<Coffee> idForCoffee = coffeeMapper.findById(id);
         return idForCoffee.orElseThrow();
+    }
+
+    @Override
+    public void register(CoffeeForm form) {
+        coffeeMapper.insert(form);
     }
 }

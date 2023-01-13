@@ -3,7 +3,7 @@
 <mapper namespace="com.rasetech.java9.mapper.CoffeeMapper">
     <select id="findAll" resultType="com.rasetech.java9.entity.Coffee">
         SELECT
-            id, productName, countryOfOrigin, degreeOfRoasting, aroma, acidity, bitterTaste, sweetTaste, rich, priceOf100g, priceOf200g
+            *
         FROM
             coffees
         ORDER BY
@@ -11,10 +11,15 @@
     </select>
     <select id="findById" resultType="com.rasetech.java9.entity.Coffee">
         SELECT
-            id,productName, countryOfOrigin, degreeOfRoasting, aroma, acidity, bitterTaste, sweetTaste, rich, priceOf100g, priceOf200g
+            *
         FROM
             coffees
         WHERE
             id = #{id}
     </select>
+    <insert id="insert" useGeneratedKeys="true"
+        keyProperty="id">
+        INSERT INTO coffees (productName, countryOfOrigin, degreeOfRoasting, aroma, acidity, bitterTaste, sweetTaste, rich, priceOf100g, priceOf200g)
+        VALUES (#{productName}, #{countryOfOrigin}, #{degreeOfRoasting}, #{aroma}, #{acidity}, #{bitterTaste}, #{sweetTaste}, #{rich}, #{priceOf100g}, #{priceOf200g})
+    </insert>
 </mapper>
