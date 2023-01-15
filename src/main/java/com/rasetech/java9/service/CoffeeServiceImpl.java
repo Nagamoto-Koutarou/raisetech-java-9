@@ -30,4 +30,9 @@ public class CoffeeServiceImpl implements CoffeeService {
     public void register(CoffeeForm form) {
         coffeeMapper.insert(form);
     }
+
+    @Override
+    public void delete(int id) {
+        coffeeMapper.delete(id);
+    }
 }

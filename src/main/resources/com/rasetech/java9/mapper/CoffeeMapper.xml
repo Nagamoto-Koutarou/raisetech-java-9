@@ -22,4 +22,11 @@
         INSERT INTO coffees (productName, countryOfOrigin, degreeOfRoasting, aroma, acidity, bitterTaste, sweetTaste, rich, priceOf100g, priceOf200g)
         VALUES (#{productName}, #{countryOfOrigin}, #{degreeOfRoasting}, #{aroma}, #{acidity}, #{bitterTaste}, #{sweetTaste}, #{rich}, #{priceOf100g}, #{priceOf200g})
     </insert>
+    <delete id="delete">
+        DELETE
+        FROM
+            coffees
+        WHERE
+            id = #{id}
+    </delete>
 </mapper>

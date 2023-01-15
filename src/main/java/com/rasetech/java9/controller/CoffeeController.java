@@ -50,4 +50,10 @@ public class CoffeeController {
                 .toUri();
         return ResponseEntity.created(url).body(Map.of("message", "coffee successfully create" ));
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Map<String, String>> delete(@PathVariable("id")int id) {
+        coffeeService.delete(id);
+        return ResponseEntity.ok(Map.of("message", "coffee successfully delete"));
+    }
 }
