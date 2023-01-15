@@ -12,5 +12,5 @@ public interface CoffeeService {
 
     void register(CoffeeForm form);
 
-    void update(CoffeeForm form);
+    void delete(int id);
 }

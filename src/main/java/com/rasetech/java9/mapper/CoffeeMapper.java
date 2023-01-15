@@ -15,5 +15,5 @@ public interface CoffeeMapper {
 
     void insert(CoffeeForm form);
 
-    void update(CoffeeForm form);
+    void delete(int id);
 }

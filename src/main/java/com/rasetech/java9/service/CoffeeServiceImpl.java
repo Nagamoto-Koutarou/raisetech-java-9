@@ -32,7 +32,7 @@ public class CoffeeServiceImpl implements CoffeeService {
     }
 
     @Override
-    public void update(CoffeeForm form) {
-        coffeeMapper.update(form);
+    public void delete(int id) {
+        coffeeMapper.delete(id);
     }
 }
