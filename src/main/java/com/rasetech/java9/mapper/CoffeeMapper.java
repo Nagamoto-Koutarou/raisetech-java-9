@@ -14,4 +14,6 @@ public interface CoffeeMapper {
     Optional<Coffee> findById(int id);
 
     void insert(CoffeeForm form);
+
+    void update(CoffeeForm form);
 }

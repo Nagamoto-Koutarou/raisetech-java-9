@@ -34,7 +34,6 @@ public class CoffeeController {
     @PostMapping
     public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CoffeeForm form, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
         if (result.hasErrors()) {
-
             Map<String, String> body = Map.of(
                     "timestamp", ZonedDateTime.now().toString(),
                     "status", String.valueOf(HttpStatus.BAD_REQUEST.value()),
@@ -49,5 +48,21 @@ public class CoffeeController {
                 .build()
                 .toUri();
         return ResponseEntity.created(url).body(Map.of("message", "coffee successfully create" ));
+    }
+
+    @PatchMapping()
+    public ResponseEntity<Map<String,String>> patch(@RequestBody @Validated CoffeeForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            Map<String, String> body = Map.of(
+                    "timestamp", ZonedDateTime.now().toString(),
+                    "status", String.valueOf(HttpStatus.BAD_REQUEST.value()),
+                    "error", HttpStatus.BAD_REQUEST.getReasonPhrase(),
+                    "message", "update failed",
+                    "path", "/coffees"
+            );
+            return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+        }
+        coffeeService.update(form);
+        return ResponseEntity.ok(Map.of("message", "coffee successfully update"));
     }
 }

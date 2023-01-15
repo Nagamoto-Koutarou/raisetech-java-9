@@ -11,4 +11,6 @@ public interface CoffeeService {
     Coffee findById(int id);
 
     void register(CoffeeForm form);
+
+    void update(CoffeeForm form);
 }
