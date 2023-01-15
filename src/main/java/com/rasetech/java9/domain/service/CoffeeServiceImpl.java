@@ -38,6 +38,14 @@ public class CoffeeServiceImpl implements CoffeeService {
     }
 
     @Override
+    public void update(@Validated CoffeeForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            throw new BadRequestException("bad request");
+        }
+        coffeeMapper.update(form);
+    }
+
+    @Override
     public void delete(int id) {
         coffeeMapper.delete(id);
     }

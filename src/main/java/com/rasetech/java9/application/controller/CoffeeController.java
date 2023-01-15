@@ -1,7 +1,6 @@
 package com.rasetech.java9.application.controller;
 
 import com.rasetech.java9.application.form.CoffeeForm;
-import com.rasetech.java9.domain.exception.ResourceNotFoundException;
 import com.rasetech.java9.domain.service.CoffeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +36,12 @@ public class CoffeeController {
                 .build()
                 .toUri();
         return ResponseEntity.created(url).body(Map.of("message", "coffee successfully create" ));
+    }
+
+    @PatchMapping
+    public ResponseEntity<Map<String, String>> patch(@RequestBody @Validated CoffeeForm form, BindingResult result) {
+        coffeeService.update(form, result);
+        return ResponseEntity.ok(Map.of("message", "coffee successfully update"));
     }
 
     @DeleteMapping("{id}")

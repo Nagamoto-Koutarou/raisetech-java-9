@@ -14,5 +14,7 @@ public interface CoffeeService {
 
     void register(@Validated CoffeeForm form, BindingResult result);
 
+    void update(@Validated CoffeeForm form, BindingResult result);
+
     void delete(int id);
 }

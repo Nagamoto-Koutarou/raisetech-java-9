@@ -22,6 +22,22 @@
         INSERT INTO coffees (productName, countryOfOrigin, degreeOfRoasting, aroma, acidity, bitterTaste, sweetTaste, rich, priceOf100g, priceOf200g)
         VALUES (#{productName}, #{countryOfOrigin}, #{degreeOfRoasting}, #{aroma}, #{acidity}, #{bitterTaste}, #{sweetTaste}, #{rich}, #{priceOf100g}, #{priceOf200g})
     </insert>
+    <update id="update" >
+        UPDATE coffees
+        SET
+        productName = #{productName},
+        countryOfOrigin = #{countryOfOrigin},
+        degreeOfRoasting = #{degreeOfRoasting},
+        aroma = #{aroma},
+        acidity = #{acidity},
+        bitterTaste = #{bitterTaste},
+        sweetTaste = #{sweetTaste},
+        rich = #{rich},
+        priceOf100g = #{priceOf100g},
+        priceOf200g = #{priceOf200g}
+        WHERE
+        id = #{id}
+    </update>
     <delete id="delete">
         DELETE
         FROM
