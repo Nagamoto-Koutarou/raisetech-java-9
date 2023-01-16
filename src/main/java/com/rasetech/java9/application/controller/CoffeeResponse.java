@@ -1,6 +1,6 @@
-package com.rasetech.java9.controller;
+package com.rasetech.java9.application.controller;
 
-import com.rasetech.java9.entity.Coffee;
+import com.rasetech.java9.infrastructure.entity.Coffee;
 import lombok.Getter;
 
 @Getter

@@ -1,9 +1,9 @@
-package com.rasetech.java9.controller;
+package com.rasetech.java9.application.controller;
 
-import com.rasetech.java9.form.CoffeeForm;
-import com.rasetech.java9.service.CoffeeService;
+import com.rasetech.java9.application.form.CoffeeForm;
+import com.rasetech.java9.domain.exception.ResourceNotFoundException;
+import com.rasetech.java9.domain.service.CoffeeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -33,18 +32,7 @@ public class CoffeeController {
 
     @PostMapping
     public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CoffeeForm form, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
-        if (result.hasErrors()) {
-
-            Map<String, String> body = Map.of(
-                    "timestamp", ZonedDateTime.now().toString(),
-                    "status", String.valueOf(HttpStatus.BAD_REQUEST.value()),
-                    "error", HttpStatus.BAD_REQUEST.getReasonPhrase(),
-                    "message", "create failed",
-                    "path", "/coffees"
-            );
-            return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-        }
-        coffeeService.register(form);
+        coffeeService.register(form, result);
         URI url = uriComponentsBuilder.path("/coffees")
                 .build()
                 .toUri();

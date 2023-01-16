@@ -1,7 +1,7 @@
-package com.rasetech.java9.mapper;
+package com.rasetech.java9.infrastructure.mapper;
 
-import com.rasetech.java9.entity.Coffee;
-import com.rasetech.java9.form.CoffeeForm;
+import com.rasetech.java9.application.form.CoffeeForm;
+import com.rasetech.java9.infrastructure.entity.Coffee;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

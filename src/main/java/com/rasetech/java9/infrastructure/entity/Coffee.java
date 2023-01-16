@@ -1,4 +1,4 @@
-package com.rasetech.java9.entity;
+package com.rasetech.java9.infrastructure.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

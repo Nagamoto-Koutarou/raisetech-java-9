@@ -1,4 +1,4 @@
-package com.rasetech.java9.form;
+package com.rasetech.java9.application.form;
 
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
