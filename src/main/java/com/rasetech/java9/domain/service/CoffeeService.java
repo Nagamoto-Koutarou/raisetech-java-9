@@ -12,9 +12,9 @@ public interface CoffeeService {
 
     Coffee findById(int id);
 
-    void register(@Validated CoffeeForm form, BindingResult result);
+    void register(CoffeeForm form, BindingResult result);
 
-    void update(@Validated CoffeeForm form, BindingResult result);
+    void update(CoffeeForm form, BindingResult result);
 
     void delete(int id);
 }

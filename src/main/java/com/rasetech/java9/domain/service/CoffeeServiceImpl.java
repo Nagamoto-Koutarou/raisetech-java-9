@@ -30,7 +30,7 @@ public class CoffeeServiceImpl implements CoffeeService {
     }
 
     @Override
-    public void register(@Validated CoffeeForm form, BindingResult result) {
+    public void register(CoffeeForm form, BindingResult result) {
         if (result.hasErrors()) {
             throw new BadRequestException("bad request");
         }
@@ -38,7 +38,7 @@ public class CoffeeServiceImpl implements CoffeeService {
     }
 
     @Override
-    public void update(@Validated CoffeeForm form, BindingResult result) {
+    public void update(CoffeeForm form, BindingResult result) {
         if (result.hasErrors()) {
             throw new BadRequestException("bad request");
         }
