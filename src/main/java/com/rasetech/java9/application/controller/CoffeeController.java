@@ -32,16 +32,19 @@ public class CoffeeController {
     @PostMapping
     public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CoffeeForm form, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
         coffeeService.register(form, result);
-        URI url = uriComponentsBuilder.path("/coffees")
+        URI url = uriComponentsBuilder.path("/coffees/" + form.getId())
                 .build()
                 .toUri();
         return ResponseEntity.created(url).body(Map.of("message", "coffee successfully create" ));
     }
 
     @PatchMapping
-    public ResponseEntity<Map<String, String>> patch(@RequestBody @Validated CoffeeForm form, BindingResult result) {
+    public ResponseEntity<Map<String, String>> patch(@RequestBody @Validated CoffeeForm form, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
         coffeeService.update(form, result);
-        return ResponseEntity.ok(Map.of("message", "coffee successfully update"));
+        URI url = uriComponentsBuilder.path("/coffees/" + form.getId())
+                .build()
+                .toUri();
+        return ResponseEntity.created(url).body(Map.of("message", "coffee successfully update"));
     }
 
     @DeleteMapping("{id}")
