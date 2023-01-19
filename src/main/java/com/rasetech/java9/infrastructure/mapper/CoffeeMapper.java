@@ -1,6 +1,5 @@
 package com.rasetech.java9.infrastructure.mapper;
 
-import com.rasetech.java9.application.form.CoffeeForm;
 import com.rasetech.java9.infrastructure.entity.Coffee;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,9 +12,9 @@ public interface CoffeeMapper {
 
     Optional<Coffee> findById(int id);
 
-    void insert(CoffeeForm form);
+    void insert(Coffee coffee);
 
-    void update(CoffeeForm form);
+    void update(int id, Coffee coffee);
 
     void delete(int id);
 }

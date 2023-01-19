@@ -2,7 +2,9 @@ package com.rasetech.java9.application.controller;
 
 import com.rasetech.java9.application.form.CoffeeForm;
 import com.rasetech.java9.domain.service.CoffeeService;
+import com.rasetech.java9.infrastructure.entity.Coffee;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -31,17 +33,21 @@ public class CoffeeController {
 
     @PostMapping
     public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CoffeeForm form, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
-        coffeeService.register(form, result);
-        URI url = uriComponentsBuilder.path("/coffees/" + form.getId())
+        ModelMapper modelMapper = new ModelMapper();
+        Coffee coffee = modelMapper.map(form, Coffee.class);
+        coffeeService.register(coffee, result);
+        URI url = uriComponentsBuilder.path("/coffees/" + coffee.getId())
                 .build()
                 .toUri();
         return ResponseEntity.created(url).body(Map.of("message", "coffee successfully create" ));
     }
 
-    @PatchMapping
-    public ResponseEntity<Map<String, String>> patch(@RequestBody @Validated CoffeeForm form, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
-        coffeeService.update(form, result);
-        URI url = uriComponentsBuilder.path("/coffees/" + form.getId())
+    @PatchMapping("/{id}")
+    public ResponseEntity<Map<String, String>> patch(@PathVariable("id")int id, @RequestBody @Validated CoffeeForm form, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
+        ModelMapper modelMapper = new ModelMapper();
+        Coffee coffee = modelMapper.map(form, Coffee.class);
+        coffeeService.update(id, coffee, result);
+        URI url = uriComponentsBuilder.path("/coffees/" + id)
                 .build()
                 .toUri();
         return ResponseEntity.created(url).body(Map.of("message", "coffee successfully update"));

@@ -1,9 +1,13 @@
 package com.rasetech.java9.application.controller;
 
 import com.rasetech.java9.infrastructure.entity.Coffee;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
+@AllArgsConstructor
 @Getter
+@Setter
 public class CoffeeResponse {
 
     private final int id;

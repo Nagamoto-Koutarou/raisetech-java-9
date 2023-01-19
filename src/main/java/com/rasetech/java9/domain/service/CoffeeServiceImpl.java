@@ -1,17 +1,14 @@
 package com.rasetech.java9.domain.service;
 
 import com.rasetech.java9.domain.exception.BadRequestException;
-import com.rasetech.java9.infrastructure.entity.Coffee;
 import com.rasetech.java9.domain.exception.ResourceNotFoundException;
-import com.rasetech.java9.application.form.CoffeeForm;
+import com.rasetech.java9.infrastructure.entity.Coffee;
 import com.rasetech.java9.infrastructure.mapper.CoffeeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -30,19 +27,19 @@ public class CoffeeServiceImpl implements CoffeeService {
     }
 
     @Override
-    public void register(CoffeeForm form, BindingResult result) {
+    public void register(Coffee coffee, BindingResult result) {
         if (result.hasErrors()) {
             throw new BadRequestException("bad request");
         }
-        coffeeMapper.insert(form);
+        coffeeMapper.insert(coffee);
     }
 
     @Override
-    public void update(CoffeeForm form, BindingResult result) {
+    public void update(int id, Coffee coffee, BindingResult result) {
         if (result.hasErrors()) {
             throw new BadRequestException("bad request");
         }
-        coffeeMapper.update(form);
+        coffeeMapper.update(id, coffee);
     }
 
     @Override

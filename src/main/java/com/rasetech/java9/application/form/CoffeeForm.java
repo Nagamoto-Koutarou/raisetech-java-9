@@ -13,7 +13,6 @@ import org.hibernate.validator.constraints.Range;
 @Getter
 @Setter
 public class CoffeeForm {
-    private int id;
 
     @NotBlank
     private String productName;
