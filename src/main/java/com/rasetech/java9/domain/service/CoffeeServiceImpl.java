@@ -27,19 +27,21 @@ public class CoffeeServiceImpl implements CoffeeService {
     }
 
     @Override
-    public void register(Coffee coffee, BindingResult result) {
+    public Coffee register(Coffee coffee, BindingResult result) {
         if (result.hasErrors()) {
             throw new BadRequestException("bad request");
         }
         coffeeMapper.insert(coffee);
+        return coffee;
     }
 
     @Override
-    public void update(int id, Coffee coffee, BindingResult result) {
+    public Coffee update(int id, Coffee coffee, BindingResult result) {
         if (result.hasErrors()) {
             throw new BadRequestException("bad request");
         }
         coffeeMapper.update(id, coffee);
+        return coffee;
     }
 
     @Override

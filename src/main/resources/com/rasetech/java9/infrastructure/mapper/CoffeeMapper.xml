@@ -21,7 +21,7 @@
         INSERT INTO coffees (productName, countryOfOrigin, degreeOfRoasting, aroma, acidity, bitterTaste, sweetTaste, rich, priceOf100g, priceOf200g)
         VALUES (#{productName}, #{countryOfOrigin}, #{degreeOfRoasting}, #{aroma}, #{acidity}, #{bitterTaste}, #{sweetTaste}, #{rich}, #{priceOf100g}, #{priceOf200g})
     </insert>
-    <update id="update" >
+    <update id="update">
         UPDATE coffees
         SET
         productName = #{coffee.productName},
