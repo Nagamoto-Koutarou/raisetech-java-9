@@ -35,7 +35,7 @@ public class CoffeeController {
     public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CoffeeForm form, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
         ModelMapper modelMapper1 = new ModelMapper();
         Coffee conversionCoffee = modelMapper1.map(form, Coffee.class);
-        Coffee coffee =coffeeService.register(conversionCoffee, result);
+        Coffee coffee = coffeeService.register(conversionCoffee, result);
         URI url = uriComponentsBuilder.path("/coffees/" + coffee.getId())
                 .build()
                 .toUri();
