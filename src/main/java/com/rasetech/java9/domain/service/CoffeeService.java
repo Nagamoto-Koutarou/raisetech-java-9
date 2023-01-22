@@ -10,9 +10,9 @@ public interface CoffeeService {
 
     Coffee findById(int id);
 
-    Coffee register(Coffee coffee, BindingResult result);
+    Coffee register(Coffee conversionCoffee, BindingResult result);
 
-    Coffee update(int id, Coffee coffee, BindingResult result);
+    void update(int id, Coffee conversionCoffee, BindingResult result);
 
     void delete(int id);
 }

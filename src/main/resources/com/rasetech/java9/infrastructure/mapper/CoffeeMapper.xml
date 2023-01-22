@@ -24,16 +24,16 @@
     <update id="update">
         UPDATE coffees
         SET
-        productName = #{coffee.productName},
-        countryOfOrigin = #{coffee.countryOfOrigin},
-        degreeOfRoasting = #{coffee.degreeOfRoasting},
-        aroma = #{coffee.aroma},
-        acidity = #{coffee.acidity},
-        bitterTaste = #{coffee.bitterTaste},
-        sweetTaste = #{coffee.sweetTaste},
-        rich = #{coffee.rich},
-        priceOf100g = #{coffee.priceOf100g},
-        priceOf200g = #{coffee.priceOf200g}
+        productName = #{conversionCoffee.productName},
+        countryOfOrigin = #{conversionCoffee.countryOfOrigin},
+        degreeOfRoasting = #{conversionCoffee.degreeOfRoasting},
+        aroma = #{conversionCoffee.aroma},
+        acidity = #{conversionCoffee.acidity},
+        bitterTaste = #{conversionCoffee.bitterTaste},
+        sweetTaste = #{conversionCoffee.sweetTaste},
+        rich = #{conversionCoffee.rich},
+        priceOf100g = #{conversionCoffee.priceOf100g},
+        priceOf200g = #{conversionCoffee.priceOf200g}
         WHERE
         id = #{id}
     </update>

@@ -33,9 +33,9 @@ public class CoffeeController {
 
     @PostMapping
     public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CoffeeForm form, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
-        ModelMapper modelMapper = new ModelMapper();
-        Coffee coffee = modelMapper.map(form, Coffee.class);
-        coffeeService.register(coffee, result);
+        ModelMapper modelMapper1 = new ModelMapper();
+        Coffee conversionCoffee = modelMapper1.map(form, Coffee.class);
+        Coffee coffee =coffeeService.register(conversionCoffee, result);
         URI url = uriComponentsBuilder.path("/coffees/" + coffee.getId())
                 .build()
                 .toUri();
@@ -45,8 +45,8 @@ public class CoffeeController {
     @PatchMapping("/{id}")
     public ResponseEntity<Map<String, String>> patch(@PathVariable("id")int id, @RequestBody @Validated CoffeeForm form, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
         ModelMapper modelMapper = new ModelMapper();
-        Coffee coffee = modelMapper.map(form, Coffee.class);
-        coffeeService.update(id, coffee, result);
+        Coffee conversionCoffee = modelMapper.map(form, Coffee.class);
+        coffeeService.update(id, conversionCoffee, result);
         URI url = uriComponentsBuilder.path("/coffees/" + id)
                 .build()
                 .toUri();

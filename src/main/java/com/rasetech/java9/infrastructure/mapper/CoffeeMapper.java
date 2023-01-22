@@ -12,9 +12,9 @@ public interface CoffeeMapper {
 
     Optional<Coffee> findById(int id);
 
-    int insert(Coffee coffee);
+    int insert(Coffee conversionCoffee);
 
-    int update(int id, Coffee coffee);
+    void update(int id, Coffee conversionCoffee);
 
     void delete(int id);
 }
